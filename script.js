@@ -7,6 +7,10 @@ let resultado = document.getElementById('r');
 function soma(){
     let somaHora = Number(hi.value) + Number(hf.value);
     let somaMinuto = Number(mi.value) + Number(mf.value);
+    while(somaMinuto > 59){
+        somaMinuto -= 60;
+        somaHora ++;
+    }
 
     resultado.innerHTML = somaHora + ":" + somaMinuto;
 }
