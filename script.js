@@ -16,9 +16,16 @@ function soma(){
 }
 
 function sub(){
-    let subHora = Number(hi.value) - Number(hf.value);
-    let subMinuto = Number(mi.value) - Number(mf.value);
-
-    resultado.innerHTML = subHora + ":" + subMinuto;
-
+    let momentoInicial = hi.value*60 + mi.value;
+    let momentoFinal = hf.value*60 + mf.value;
+    let resultadoEmMinutos = momentoInicial - momentoFinal;
+    if(resultadoEmMinutos < 0){
+        resultadoEmMinutos *= -1;
+    }
+    let resultadoEmHoras = 0;
+    while(resultadoEmMinutos > 59){
+        resultadoemHoras ++;
+        resultadoEmHoras -+ 60;
+    }
+    resultado.innerHTML = resultadoEmHoras + ":" + resultadoEmMinutos;
 }
